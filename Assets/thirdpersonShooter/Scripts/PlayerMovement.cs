@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject ScoreM;
     public Transform cam;
     private float rotateXspeed = 4.0f;
-
+    public float gravity;
     public float smoothtime = 0.1f;
     float turnSmoothVelocity;
    
@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         var mouseHorizontal = Input.GetAxis("Mouse X");
         var mouseVectical = Input.GetAxis("Mouse Y");
         var movement = new Vector3(horizontal, 0, vertical);
+        //movement.y-=gravity;
         anim.SetFloat("Speed", movement.magnitude);
         this.transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + mouseHorizontal * rotateXspeed, transform.localEulerAngles.z);
 
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetangle, 0f) * Vector3.forward;
             float moveSpeed = (vertical > 0) ? playerSpeed : backSpeed;
-            characterController.Move( moveDir.normalized * moveSpeed * Time.deltaTime);
+            characterController.SimpleMove( moveDir * moveSpeed);
             //audioSource.clip = audioClip;
             //audioSource.Play();
         }
