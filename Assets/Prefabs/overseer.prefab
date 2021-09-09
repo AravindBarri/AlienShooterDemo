@@ -1348,7 +1348,7 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0
 --- !u!65 &67460511553032361
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1431,6 +1431,7 @@ MonoBehaviour:
   chasingPoint: 20
   isChasing: 0
   isDead: 0
+  isHit: 0
 --- !u!1 &8731055840870280784
 GameObject:
   m_ObjectHideFlags: 0

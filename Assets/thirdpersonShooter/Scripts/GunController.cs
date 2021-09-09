@@ -50,7 +50,7 @@ public class GunController : MonoBehaviour
             if(hit.collider.gameObject.tag == "Enemy")
             {
                 TotalEnemies--;
-                ScoreManager.Scoreinstance.EnemyKillScore();
+                
                 EnemyMovement.enemyInstance.HitEffect();
             }
         }

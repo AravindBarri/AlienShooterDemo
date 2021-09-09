@@ -14,12 +14,13 @@ public class EnemyMovement : MonoBehaviour
     public static EnemyMovement enemyInstance;
 
     public bool isDead=false;
+    public bool isHit = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animation>();
-        navMesh = GetComponent<NavMeshAgent>();
+        anim = this.GetComponent<Animation>();
+        navMesh = this.GetComponent<NavMeshAgent>();
         startingPoint = this.transform.position;
         enemyInstance = this;
         
@@ -33,10 +34,10 @@ public class EnemyMovement : MonoBehaviour
             isChasing = true;
             anim.Play("run");
         }
-        else if(!isDead)
+        else if(!isDead && !isHit)
         {
             isChasing = false;
-            //anim.Play("idle_lookaround");
+            anim.Play("idle_lookaround");
         }
         if (isChasing && !isDead)
         {
@@ -66,6 +67,12 @@ public class EnemyMovement : MonoBehaviour
     public void HitEffect()
     {
         anim.Play("hit1");
+        isHit = true;
+        Invoke("stopHitBool", 1f);
+    }
+    public void stopHitBool()
+    {
+        isHit = false;
     }
    
 }
