@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     {
         Scoreinstance = this;
     }
-    public void updateHealth(int value)
+    public void updateHealth(float value)
     {
         HealthUI.text = "Health: " + value;
     }

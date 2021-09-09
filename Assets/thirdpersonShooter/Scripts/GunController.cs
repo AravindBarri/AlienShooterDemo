@@ -31,10 +31,7 @@ public class GunController : MonoBehaviour
             }
             
         }
-        if (TotalEnemies == 0)
-        {
-            HelicopterSpawn.helicinstance.finishedGame = true;
-        }
+        
     }
     private void FireGun()
     {
@@ -54,6 +51,7 @@ public class GunController : MonoBehaviour
             {
                 TotalEnemies--;
                 ScoreManager.Scoreinstance.EnemyKillScore();
+                EnemyMovement.enemyInstance.HitEffect();
             }
         }
     }

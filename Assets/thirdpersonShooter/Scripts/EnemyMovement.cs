@@ -5,29 +5,67 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    Animator anim;
-    AggroDetection aggro;
-    NavMeshAgent nav;
-    Transform enemyTarget;
-    private void Awake()
-    {
-        nav = GetComponent<NavMeshAgent>();
-        anim = GetComponentInChildren<Animator>();
-        aggro = GetComponent<AggroDetection>();
-        aggro.OnAggro += Aggro_OnAggro;
-    }
-    private void Aggro_OnAggro(Transform target)
-    {
-        this.enemyTarget = target;
-    }
-    private void Update()
-    {
-        if (enemyTarget != null)
-        {
-            nav.SetDestination(enemyTarget.position);
-            float enemySpeed = nav.velocity.magnitude;
-            anim.SetFloat("Speed", enemySpeed);
-        }
+    public float chasingPoint;
+    Vector3 startingPoint;
+    public bool isChasing;
+    NavMeshAgent navMesh;
+    private Animation anim;
 
+    public static EnemyMovement enemyInstance;
+
+    public bool isDead=false;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        anim = GetComponent<Animation>();
+        navMesh = GetComponent<NavMeshAgent>();
+        startingPoint = this.transform.position;
+        enemyInstance = this;
+        
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < chasingPoint )
+        {
+            isChasing = true;
+            anim.Play("run");
+        }
+        else if(!isDead)
+        {
+            isChasing = false;
+            //anim.Play("idle_lookaround");
+        }
+        if (isChasing && !isDead)
+        {
+            navMesh.SetDestination(PlayerMovement.instance.transform.position);
+        }
+        else if(!isDead)
+        {
+            navMesh.SetDestination(startingPoint);
+        }
+        if (Vector3.Distance(transform.position,PlayerMovement.instance.transform.position)<3 && !isDead)
+        {
+            anim.Play("attack1");
+            Debug.Log("attacking");
+            Health.healthinstance.TakeDamage(0.1f);
+            
+        }
+        if (isDead)
+        {
+            anim.Play("die1");
+        }
+    }
+    public void enemyDead()
+    {
+        isDead = true;
+        
+    }
+    public void HitEffect()
+    {
+        anim.Play("hit1");
+    }
+   
 }

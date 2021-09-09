@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    int startHealth = 5;
-    public int currentHealth;
+    float startHealth = 5;
+    public float currentHealth;
     public GameObject DeathEffect;
     public static Health healthinstance;
     private void Start()
@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
     {
         currentHealth = startHealth;
     }
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
         ScoreManager.Scoreinstance.updateHealth(currentHealth);

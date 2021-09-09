@@ -9,7 +9,6 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     int startHealth = 5;
     public int currentHealth;
-    public GameObject DeathEffect;
     public static EnemyHealth Enemyhealthinstance;
     private void Start()
     {
@@ -32,11 +31,18 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         //gameObject.SetActive(false);
-        Destroy(this.gameObject);
-        Instantiate(DeathEffect, this.transform);
+        //Destroy(this.gameObject);
+        //Instantiate(DeathEffect, this.transform);
+        EnemyMovement.enemyInstance.enemyDead();
+        Invoke("EnemyDestroy",2f);
         if (this.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(2);
         }
+    }
+    public void EnemyDestroy()
+    {
+        Destroy(this.gameObject);
+        ScoreManager.Scoreinstance.EnemyKillScore();
     }
 }

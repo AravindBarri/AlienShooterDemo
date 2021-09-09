@@ -16,12 +16,14 @@ public class PlayerMovement : MonoBehaviour
     public float gravity;
     public float smoothtime = 0.1f;
     float turnSmoothVelocity;
-   
+
+    public static PlayerMovement instance;
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
         score = ScoreM.GetComponent<ScoreManager>();
+        instance = this;
     }
     void Update()
     {
@@ -38,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         //transform.Rotate(Vector3.up, horizontal * turnSpeed * Time.deltaTime);
         if (movement.magnitude >=0.1f)
         {
-            print(movement.magnitude);
+            //print(movement.magnitude);
             float targetangle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg +cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetangle, ref turnSmoothVelocity,smoothtime);
             transform.rotation = Quaternion.Euler(0f, targetangle, 0f);
