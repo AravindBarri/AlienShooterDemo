@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     NavMeshAgent navMesh;
     private Animation anim;
 
-    public static EnemyMovement enemyInstance;
+    //public static EnemyMovement enemyInstance;
 
     public bool isDead=false;
     public bool isHit = false;
@@ -22,14 +22,14 @@ public class EnemyMovement : MonoBehaviour
         anim = this.GetComponent<Animation>();
         navMesh = this.GetComponent<NavMeshAgent>();
         startingPoint = this.transform.position;
-        enemyInstance = this;
+        //enemyInstance = this;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < chasingPoint )
+        if (Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < chasingPoint && !isDead && !isHit)
         {
             isChasing = true;
             anim.Play("run");

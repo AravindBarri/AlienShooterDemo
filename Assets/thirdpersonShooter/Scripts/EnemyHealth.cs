@@ -33,7 +33,11 @@ public class EnemyHealth : MonoBehaviour
         //gameObject.SetActive(false);
         //Destroy(this.gameObject);
         //Instantiate(DeathEffect, this.transform);
-        EnemyMovement.enemyInstance.enemyDead();
+        EnemyMovement movobj = this.gameObject.GetComponent<EnemyMovement>();
+        if (movobj != null)
+        {
+            movobj.enemyDead();
+        }
         Invoke("EnemyDestroy",2f);
         if (this.gameObject.tag == "Player")
         {

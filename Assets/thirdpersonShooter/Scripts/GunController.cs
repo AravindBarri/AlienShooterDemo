@@ -50,8 +50,12 @@ public class GunController : MonoBehaviour
             if(hit.collider.gameObject.tag == "Enemy")
             {
                 TotalEnemies--;
-                
-                EnemyMovement.enemyInstance.HitEffect();
+                EnemyMovement movobj = hit.collider.gameObject.GetComponent<EnemyMovement>();
+                if(movobj != null)
+                {
+                    movobj.HitEffect();
+                }
+                //EnemyMovement.enemyInstance.HitEffect();
             }
         }
     }
