@@ -23,7 +23,7 @@ public class BoatMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                BoatMoveSpeed = 8f;
+                BoatMoveSpeed = 10f;
             }
         }
     }
