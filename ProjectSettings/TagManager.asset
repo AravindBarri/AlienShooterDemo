@@ -8,6 +8,8 @@ TagManager:
   - bodyZone
   - dangerZone
   - Enemy
+  - Fire
+  - Boat
   layers:
   - Default
   - TransparentFX

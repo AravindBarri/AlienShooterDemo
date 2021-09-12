@@ -40,7 +40,7 @@ public class GunController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f))
         {
-            Debug.Log(hit.collider.gameObject.tag);
+            Debug.Log(hit.collider.gameObject.name);
             var enemyhealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
             if (enemyhealth != null)
             {
@@ -55,6 +55,7 @@ public class GunController : MonoBehaviour
                 {
                     movobj.HitEffect();
                 }
+                
                 //EnemyMovement.enemyInstance.HitEffect();
             }
         }
