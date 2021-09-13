@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
         //Instantiate(DeathEffect, this.transform);
         if (this.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

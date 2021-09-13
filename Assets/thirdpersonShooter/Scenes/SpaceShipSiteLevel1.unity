@@ -532,8 +532,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254445449}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 814.83496, y: -763.2205, z: -2035.7793}
+  m_LocalRotation: {x: -0.23139238, y: 0.23649396, z: 0.05809914, w: 0.94188786}
+  m_LocalPosition: {x: -725.02014, y: -30.361523, z: 46.646362}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755715093}
@@ -773,6 +773,7 @@ MonoBehaviour:
   isChasing: 0
   isDead: 0
   isHit: 0
+  isAttack: 0
 --- !u!114 &370104414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,6 +1523,7 @@ MonoBehaviour:
   isChasing: 0
   isDead: 0
   isHit: 0
+  isAttack: 0
 --- !u!114 &944496575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,6 +1678,7 @@ MonoBehaviour:
   isChasing: 0
   isDead: 0
   isHit: 0
+  isAttack: 0
 --- !u!114 &960747392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3386,7 +3389,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Health : 50'
+  m_Text: 'Health : 100'
 --- !u!222 &1591172135
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3692,6 +3695,7 @@ MonoBehaviour:
   isChasing: 0
   isDead: 0
   isHit: 0
+  isAttack: 0
 --- !u!114 &1631809466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4184,6 +4188,7 @@ MonoBehaviour:
   isChasing: 0
   isDead: 0
   isHit: 0
+  isAttack: 0
 --- !u!65 &1684583509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5080,6 +5085,14 @@ PrefabInstance:
       propertyPath: hitmarker
       value: 
       objectReference: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
+    - target: {fileID: 7480544827137891490, guid: 9f60aa85737f93444894902ad7cd776b, type: 3}
+      propertyPath: startHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480544827137891490, guid: 9f60aa85737f93444894902ad7cd776b, type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7480544827137891493, guid: 9f60aa85737f93444894902ad7cd776b, type: 3}
       propertyPath: m_Name
       value: Player
