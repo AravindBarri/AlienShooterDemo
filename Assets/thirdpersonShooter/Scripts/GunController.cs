@@ -51,10 +51,12 @@ public class GunController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f))
         {
             Debug.Log(hit.collider.gameObject.name);
-            temp = Instantiate(hitmarker, hit.point, Quaternion.identity);
+            /*temp = Instantiate(hitmarker, hit.point, Quaternion.identity);
             temp.SetActive(true);
             print(temp.name);
-            Invoke("deleteHitMarker", 0.5f);
+            Invoke("deleteHitMarker", 0.5f);*/
+            HitMarkerManager.hitinstance.instancePoint = hit.point;
+            HitMarkerManager.hitinstance.SpawnMarker();
             var enemyhealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
             if (enemyhealth != null)
             {

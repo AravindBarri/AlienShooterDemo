@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class HitMarkerScript : MonoBehaviour
 {
-    public static HitMarkerScript hitmarkerInstance;
+    public static HitMarkerScript hitPoolInstance;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("InActiveMarker", 0.3f);
+        Invoke("PushtoPool", 1f);
     }
-
+    private void Update()
+    {
+        Invoke("PushtoPool", 1f);
+    }
     // Update is called once per frame
-    void Update()
+    public void PushtoPool()
     {
-        
-    }
-   
-       
-
-    public void InActiveMarker()
-    {
-        Destroy(this.gameObject);
+        HitMarkerManager.hitinstance.AddHitMarkerPool(this.gameObject);
+        //Destroy(this.gameObject);
     }
 }
