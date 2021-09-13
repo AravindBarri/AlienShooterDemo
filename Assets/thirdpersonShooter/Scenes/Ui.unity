@@ -2698,17 +2698,15 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Instructions
 
-    welcome to shooting game
+    welcome to AlienShooter Game
 
-    press left and right for
-    movement
+    Use WASD or Arrows
+    to move the player
 
-    pressing on double click  chance to kill the enemy
+    use mouse movement to move the crosshair
 
-    to overcome
-    from obstacles press jump
-
-    Grab the coins and get the score++'
+    kill all
+    the aliens in the area and complete the level by going to finish line'
 --- !u!222 &1703446860
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3414,13 +3412,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 542548508}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 5
   m_Viewport: {fileID: 2131340130}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1658201054}
