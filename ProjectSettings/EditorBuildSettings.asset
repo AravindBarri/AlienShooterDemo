@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/thirdpersonShooter/Scenes/Ui.unity
     guid: 49cf6186ce047634dbbcb07c5a33ae8e
   - enabled: 1
-    path: Assets/thirdpersonShooter/Scenes/SpaceShipSiteLevel2.unity
+    path: Assets/thirdpersonShooter/Scenes/SpaceShipSiteLevel1.unity
     guid: 93bf337707b1e0a46895e75473d6f947
+  - enabled: 1
+    path: Assets/thirdpersonShooter/Scenes/DestroyedCityLevel2.unity
+    guid: 245cd327b2bd4db478bed657bfc0d1e5
   - enabled: 1
     path: Assets/thirdpersonShooter/Scenes/GameOver.unity
     guid: cca993ef270cd524ca30a9e96435021e
