@@ -13,7 +13,9 @@ public class GunController : MonoBehaviour
     int damage = 1;
     [SerializeField] float timer;
     [SerializeField] Transform firePoint;
-    public ParticleSystem particleSyste;
+    public GameObject gunflash;
+    public GameObject hitmarker;
+    public GameObject temp;
 
     [SerializeField]
     int TotalEnemies = 4;
@@ -27,12 +29,20 @@ public class GunController : MonoBehaviour
             {
                 timer = 0f;
                 FireGun();
-                particleSyste.Play();
+                gunflash.SetActive(true);
+                Invoke("StopGunFlash", 0.3f);
             }
-            
+
+
         }
-        
+
     }
+
+    private void StopGunFlash()
+    {
+        gunflash.SetActive(false);
+    }
+
     private void FireGun()
     {
         Ray ray = new Ray(firePoint.position, firePoint.right);
@@ -41,6 +51,10 @@ public class GunController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f))
         {
             Debug.Log(hit.collider.gameObject.name);
+            temp = Instantiate(hitmarker, hit.point, Quaternion.identity);
+            temp.SetActive(true);
+            print(temp.name);
+            Invoke("deleteHitMarker", 0.5f);
             var enemyhealth = hit.collider.gameObject.GetComponent<EnemyHealth>();
             if (enemyhealth != null)
             {
@@ -59,5 +73,9 @@ public class GunController : MonoBehaviour
                 //EnemyMovement.enemyInstance.HitEffect();
             }
         }
+    }
+    private void deleteHitMarker()
+    {
+        Destroy(temp.gameObject);
     }
 }
