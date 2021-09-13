@@ -69,8 +69,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if(other.gameObject.tag == "Finish")
         {
-            int y = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(y+1);
+            if(ScoreManager.Scoreinstance.score > 20)
+            {
+                int y = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(y + 1);
+            }
+            
         }
     }
 }
