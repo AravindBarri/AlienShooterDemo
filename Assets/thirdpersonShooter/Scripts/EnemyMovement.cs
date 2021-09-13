@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
 
     public bool isDead=false;
     public bool isHit = false;
+    public bool isAttack = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,30 +30,35 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < chasingPoint && !isDead && !isHit)
+        if (Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < chasingPoint && !isDead && !isHit && !isAttack)
         {
             isChasing = true;
             anim.Play("run");
         }
-        else if(!isDead && !isHit)
+        else if(!isDead && !isHit && !isAttack)
         {
             isChasing = false;
             anim.Play("idle_lookaround");
         }
-        if (isChasing && !isDead)
+        if (isChasing && !isDead && !isAttack)
         {
             navMesh.SetDestination(PlayerMovement.instance.transform.position);
         }
-        else if(!isDead)
+        else if(!isDead && !isAttack)
         {
             navMesh.SetDestination(startingPoint);
         }
         if (Vector3.Distance(transform.position,PlayerMovement.instance.transform.position)<3 && !isDead)
         {
+            isAttack = true;
             anim.Play("attack1");
             Debug.Log("attacking");
             Health.healthinstance.TakeDamage(0.1f);
-            
+
+        }
+        if(Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) > 3 && !isDead)
+        {
+            isAttack = false;
         }
         if (isDead)
         {
