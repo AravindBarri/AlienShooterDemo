@@ -33,10 +33,10 @@ public class Health : MonoBehaviour
     {
         //gameObject.SetActive(false);
         Destroy(this.gameObject);
-        Instantiate(DeathEffect, this.transform);
+        //Instantiate(DeathEffect, this.transform);
         if (this.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
     }
 }
