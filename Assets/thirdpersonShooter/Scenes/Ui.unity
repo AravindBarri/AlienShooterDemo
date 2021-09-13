@@ -1177,7 +1177,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Third Person Shooter
+  m_Text: Alien Shooter Demo
 --- !u!222 &867120909
 CanvasRenderer:
   m_ObjectHideFlags: 0
