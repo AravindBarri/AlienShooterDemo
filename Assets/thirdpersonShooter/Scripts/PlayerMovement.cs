@@ -54,16 +54,13 @@ public class PlayerMovement : MonoBehaviour
             //audioSource.Play();
         }
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Finish")
         {
-            if(ScoreManager.Scoreinstance.score > 20)
-            {
+        
                 int y = SceneManager.GetActiveScene().buildIndex;
                 SceneManager.LoadScene(y + 1);
-            
-            }
             
         }
     }
