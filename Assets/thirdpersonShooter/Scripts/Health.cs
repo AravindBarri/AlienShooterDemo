@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public float currentHealth;
     public GameObject DeathEffect;
     public static Health healthinstance;
+    [SerializeField] GameObject PostProcessingObject;
     private void Start()
     {
         healthinstance = this;
@@ -24,6 +25,8 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damageAmount;
         ScoreManager.Scoreinstance.updateHealth(currentHealth);
+        PostProcessingObject.SetActive(true);
+        StartCoroutine(PostProcessingEffectStop());
         if (currentHealth <= 0)
         {
             Die();
@@ -38,5 +41,10 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+    IEnumerator PostProcessingEffectStop()
+    {
+        yield return new WaitForSeconds(0.1f);
+        PostProcessingObject.SetActive(false);
     }
 }

@@ -8,9 +8,12 @@ public class GameSceneController : MonoBehaviour
     public GameObject HomeScreen;
     public GameObject OptionsMenu;
     public GameObject HelpMenu;
+    TransitionManager transitionScript;
     public void start()
     {
-        SceneManager.LoadScene(1);
+        transitionScript = GameObject.Find("Transition").GetComponent<TransitionManager>();
+        //SceneManager.LoadScene(1);
+        transitionScript.gameStart = true;
     }
     public void Home()
     {

@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity;
     public float smoothtime = 0.1f;
     float turnSmoothVelocity;
-
+    TransitionManager transitionScript;
     public static PlayerMovement instance;
     private void Awake()
     {
@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         score = ScoreM.GetComponent<ScoreManager>();
         instance = this;
+        transitionScript = GameObject.Find("Transition").GetComponent<TransitionManager>();
     }
     void Update()
     {
@@ -73,6 +74,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 int y = SceneManager.GetActiveScene().buildIndex;
                 SceneManager.LoadScene(y + 1);
+                
+                
+                //SceneManager.LoadScene(1);
+                //transitionScript.gameStart = true;
             }
             
         }
