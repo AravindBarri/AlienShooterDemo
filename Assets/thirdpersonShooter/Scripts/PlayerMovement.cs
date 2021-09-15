@@ -54,30 +54,15 @@ public class PlayerMovement : MonoBehaviour
             //audioSource.Play();
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Bottle")
-        {
-            print("Bottle");
-            other.gameObject.transform.parent.gameObject.SetActive(false);
-            score.BottleScore();
-        }
-        if (other.gameObject.tag == "Coin")
-        {
-            print("Coin");
-            other.gameObject.transform.parent.gameObject.SetActive(false);
-            score.CoinScore();
-        }
         if(other.gameObject.tag == "Finish")
         {
             if(ScoreManager.Scoreinstance.score > 20)
             {
                 int y = SceneManager.GetActiveScene().buildIndex;
                 SceneManager.LoadScene(y + 1);
-                
-                
-                //SceneManager.LoadScene(1);
-                //transitionScript.gameStart = true;
+            
             }
             
         }

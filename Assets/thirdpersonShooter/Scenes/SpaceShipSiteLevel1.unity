@@ -532,8 +532,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254445449}
-  m_LocalRotation: {x: 0.0571719, y: 0.010821432, z: 0.0006197319, w: -0.99830556}
-  m_LocalPosition: {x: -230.36905, y: -20.292084, z: 111.56857}
+  m_LocalRotation: {x: 0.0571719, y: 0.010821432, z: 0.0006197324, w: -0.99830556}
+  m_LocalPosition: {x: -231.56905, y: -20.292084, z: 111.56857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755715093}
@@ -2818,8 +2818,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387900240}
-  m_LocalRotation: {x: -0.39457244, y: 0.31275615, z: 0.1448806, w: 0.8517663}
-  m_LocalPosition: {x: -248.20616, y: -51.40571, z: 96.12305}
+  m_LocalRotation: {x: 0.0571719, y: 0.010821432, z: 0.0006197324, w: -0.99830556}
+  m_LocalPosition: {x: -231.56905, y: -20.292084, z: 111.56857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755715093}
@@ -5089,7 +5089,7 @@ GameObject:
   - component: {fileID: 2031376323}
   - component: {fileID: 2031376322}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: FinishPoint
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5106,8 +5106,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 30.779634, y: 1, z: 1}
+  m_Center: {x: 14.889818, y: 0, z: 0.0000000040771546}
 --- !u!23 &2031376323
 MeshRenderer:
   m_ObjectHideFlags: 0
