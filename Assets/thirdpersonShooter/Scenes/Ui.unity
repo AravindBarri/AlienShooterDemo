@@ -4156,6 +4156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Transition
       objectReference: {fileID: 0}
+    - target: {fileID: 8131179322362751341, guid: 8d926489fec3ab94b8a41ee8f7f66081, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8131179322362751343, guid: 8d926489fec3ab94b8a41ee8f7f66081, type: 3}
       propertyPath: transition
       value: 

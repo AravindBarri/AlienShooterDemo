@@ -53,7 +53,7 @@ public class EnemyMovement : MonoBehaviour
             isAttack = true;
             anim.Play("attack1");
             Debug.Log("attacking");
-            Health.healthinstance.TakeDamage(1f);
+            Health.healthinstance.TakeDamage(0.1f);
 
         }
         if(Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) > 3 && !isDead)

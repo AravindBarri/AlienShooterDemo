@@ -24,7 +24,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
-        ScoreManager.Scoreinstance.updateHealth(currentHealth);
+        
+        ScoreManager.Scoreinstance.updateHealth(Mathf.Round(currentHealth));
         PostProcessingObject.SetActive(true);
         StartCoroutine(PostProcessingEffectStop());
         if (currentHealth <= 0)
